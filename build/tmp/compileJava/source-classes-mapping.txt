@@ -1,0 +1,62 @@
+com/jalasoft/project/controller/exception/FileException.java
+ com.jalasoft.project.controller.exception.FileException
+com/jalasoft/project/controller/request/RequestIndividualParam.java
+ com.jalasoft.project.controller.request.RequestIndividualParam
+com/jalasoft/project/model/builder/CompanyBuilder.java
+ com.jalasoft.project.model.builder.CompanyBuilder
+com/jalasoft/project/common/validation/ValidationContext.java
+ com.jalasoft.project.common.validation.ValidationContext
+com/jalasoft/project/controller/service/FileService.java
+ com.jalasoft.project.controller.service.FileService
+com/jalasoft/project/model/builder/IndividualBuilder.java
+ com.jalasoft.project.model.builder.IndividualBuilder
+com/jalasoft/project/model/customer/Customer.java
+ com.jalasoft.project.model.customer.Customer
+com/jalasoft/project/model/enumeration/Status.java
+ com.jalasoft.project.model.enumeration.Status
+com/jalasoft/project/model/customer/Contact.java
+ com.jalasoft.project.model.customer.Contact
+com/jalasoft/project/controller/response/OKResponse.java
+ com.jalasoft.project.controller.response.OKResponse
+com/jalasoft/project/common/validation/IValidationStrategy.java
+ com.jalasoft.project.common.validation.IValidationStrategy
+com/jalasoft/project/common/validation/MultipartFileValidation.java
+ com.jalasoft.project.common.validation.MultipartFileValidation
+com/jalasoft/project/common/validation/FileValidation.java
+ com.jalasoft.project.common.validation.FileValidation
+com/jalasoft/project/model/exception/FileModelException.java
+ com.jalasoft.project.model.exception.FileModelException
+com/jalasoft/project/controller/response/Response.java
+ com.jalasoft.project.controller.response.Response
+com/jalasoft/project/Main.java
+ com.jalasoft.project.Main
+com/jalasoft/project/model/enumeration/Relation.java
+ com.jalasoft.project.model.enumeration.Relation
+com/jalasoft/project/model/result/FileResult.java
+ com.jalasoft.project.model.result.FileResult
+com/jalasoft/project/controller/response/ErrorResponse.java
+ com.jalasoft.project.controller.response.ErrorResponse
+com/jalasoft/project/controller/endpoint/RegisterIndividual.java
+ com.jalasoft.project.controller.endpoint.RegisterIndividual
+com/jalasoft/project/model/builder/ICustomerBuilder.java
+ com.jalasoft.project.model.builder.ICustomerBuilder
+com/jalasoft/project/model/enumeration/CustomerType.java
+ com.jalasoft.project.model.enumeration.CustomerType
+com/jalasoft/project/controller/component/CustomerProperties.java
+ com.jalasoft.project.controller.component.CustomerProperties
+com/jalasoft/project/model/customer/Details.java
+ com.jalasoft.project.model.customer.Details
+com/jalasoft/project/common/validation/NotNullOrEmptyValidation.java
+ com.jalasoft.project.common.validation.NotNullOrEmptyValidation
+com/jalasoft/project/controller/request/RequestParameter.java
+ com.jalasoft.project.controller.request.RequestParameter
+com/jalasoft/project/common/exception/InvalidDataException.java
+ com.jalasoft.project.common.exception.InvalidDataException
+com/jalasoft/project/model/customer/Company.java
+ com.jalasoft.project.model.customer.Company
+com/jalasoft/project/model/customer/Individual.java
+ com.jalasoft.project.model.customer.Individual
+com/jalasoft/project/controller/request/RequestCompanyParam.java
+ com.jalasoft.project.controller.request.RequestCompanyParam
+com/jalasoft/project/controller/endpoint/RegisterCompany.java
+ com.jalasoft.project.controller.endpoint.RegisterCompany
