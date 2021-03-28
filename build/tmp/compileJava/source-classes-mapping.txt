@@ -60,3 +60,5 @@ com/jalasoft/project/controller/request/RequestCompanyParam.java
  com.jalasoft.project.controller.request.RequestCompanyParam
 com/jalasoft/project/controller/endpoint/RegisterCompany.java
  com.jalasoft.project.controller.endpoint.RegisterCompany
+com/jalasoft/project/controller/endpoint/Hello.java
+ com.jalasoft.project.controller.endpoint.Hello
