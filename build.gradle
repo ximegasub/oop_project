@@ -9,13 +9,19 @@ buildscript {
 
 plugins {
     id 'java'
+    id 'maven-publish'
+    id 'application'
+    id "com.jfrog.artifactory" version "4.21.0"
+    id "org.sonarqube" version "3.1.1"
+    //Download artifactory builds
+    id 'de.undercouch.download' version '3.4.0'
 }
 
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
-group 'org.example'
-version '1.0-SNAPSHOT'
+group 'project-build'
+version '${version}'
 
 sourceCompatibility = 1.8
 
@@ -26,6 +32,72 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compile("org.springframework.boot:spring-boot-starter-web")
-    // https://mvnrepository.com/artifact/commons-io/commons-io
     compile group: 'commons-io', name: 'commons-io', version: '2.6'
+    implementation 'org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.1.1'
+}
+
+application {
+    // Define the main class for the application.
+    mainClass = 'com.jalasoft.project.Main'
+}
+
+jar {
+    manifest {
+        attributes(
+            'Main-Class': 'com.jalasoft.project.Main'
+        )
+    }
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from(components.java)
+        }
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+allprojects {
+    apply plugin: "com.jfrog.artifactory"
+}
+
+artifactory {
+    contextUrl = "${artifactory_contextUrl}"   //The base Artifactory URL if not overridden by the publisher/resolver
+    publish {
+        repository {
+            repoKey = 'gradle-dev-local'
+            username = "${artifactory_user}"
+            password = "${artifactory_password}"
+            maven = true
+            
+        }
+        defaults {
+            publishConfigs('archives')
+            publications ('mavenJava')
+            publishArtifacts = true
+        }
+    }
+    resolve {
+        repository {
+            repoKey = 'gradle-dev'
+            username = "${artifactory_user}"
+            password = "${artifactory_password}"
+            maven = true
+            
+        }
+    }
+}
+
+task downloadFile {
+    doLast {
+        download {
+            src '${artifactory_contextUrl}/gradle-dev-local/oop_project/0.0.1/oop_project-0.0.1.jar'
+            dest '/tmp'
+            overwrite true
+        }
+    }
 }

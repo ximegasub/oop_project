@@ -1,0 +1,29 @@
+plugins {
+    //Exec ssh commands remotely
+    id 'org.hidetake.ssh' version '2.10.1'
+}
+
+remotes {
+    dev_server {
+        host = '192.168.56.12'
+        user = 'dev-xime'
+        identity = file("/var/jenkins_home/.ssh/id_rsa")
+    }
+}
+
+task deploy {
+    doLast {
+        ssh.run {
+            session(remotes.dev_server) {
+                execute 'echo Building Container'
+                put from: "/var/jenkins_home/workspace/oop_project/Dockerfile", into: "/tmp/Dockerfile"
+                execute 'curl -sSf -u admin:APAaR5BcwfNGJV4Er8aC7bgemjW -O "http://192.168.56.10:8082/artifactory/gradle-dev-local/project-build/opp_project/0.0.1/opp_project-0.0.1.jar"'              
+                execute 'mv opp_project-0.0.1.jar opp_project.jar'
+                execute "cp -f /tmp/Dockerfile /home/dev-xime/Dockerfile"
+                execute 'docker container stop opp_project_container'
+                execute 'docker build -t opp_project_image --file /home/dev-xime/Dockerfile .'
+                execute 'docker run --rm -p 8080:8080 -d --name opp_project_container opp_project_image'
+            }
+        }
+    }
+}
