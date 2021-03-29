@@ -21,7 +21,7 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
 group 'project-build'
-version '${version}'
+version '0.0.1'
 
 sourceCompatibility = 1.8
 
@@ -92,12 +92,12 @@ artifactory {
     }
 }
 
-task downloadFile {
-    doLast {
-        download {
-            src '${artifactory_contextUrl}/gradle-dev-local/oop_project/0.0.1/oop_project-0.0.1.jar'
-            dest '/tmp'
-            overwrite true
-        }
-    }
-}
+// task downloadFile {
+//     doLast {
+//         download {
+//             src '${artifactory_contextUrl}/gradle-dev-local/project-build/oop_project/0.0.1/oop_project-0.0.1.jar'
+//             dest '/tmp'
+//             overwrite true
+//         }
+//     }
+// }
