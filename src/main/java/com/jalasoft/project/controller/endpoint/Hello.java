@@ -16,7 +16,7 @@ public class Hello {
     @GetMapping("/hello")
     public ResponseEntity<Response>  sayHello() {
         //return "Hello Xime!!!!!";
-        String resultMessage = "Hello Xime!!!!!";
+        String resultMessage = "Welcome Demo !!!!!";
         return ResponseEntity.ok().body(
                 new OKResponse<Integer>(HttpServletResponse.SC_OK, resultMessage)
         );
